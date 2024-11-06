@@ -2,7 +2,7 @@ CXX = g++
 CXXFLAGS = -std=c++11 -Wall
 LDFLAGS = -lfltk
 
-SRC = src/main.cpp src/layout.cxx
+SRC = src/main.cpp src/layout.cxx src/callback.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: sistema_estoque_vendas

@@ -4,42 +4,61 @@ header_name {.h}
 code_name {.cxx}
 Function {main_window()} {open
 } {
-  Fl_Window {} {
-    label MENU open
+  Fl_Window main_window {open
     xywh {1 18 1364 739} type Double box THIN_UP_BOX hide size_range {1364 739 1364 739}
   } {
-    Fl_Button {} {
-      label VENDAS
-      xywh {1050 130 230 35}
+    Fl_Group tela_menu {open
+      xywh {15 25 1330 695}
+    } {
+      Fl_Button btn_tela_venda {
+        label Vender
+        callback tela_venda
+        xywh {1000 135 300 35}
+      }
+      Fl_Button btn_tela_estoque {
+        label estoque
+        xywh {1005 230 300 35}
+      }
     }
-    Fl_Button {} {
-      label ESTOQUE
-      xywh {1050 225 230 35}
+    Fl_Group tela_menu_venda {open
+      xywh {25 25 1295 65} hide
+    } {
+      Fl_Return_Button btn_retornar_menu {
+        label Voltar
+        xywh {1210 65 110 25}
+      }
+      Fl_Button btn_nova_venda {
+        label {Nova venda}
+        xywh {1210 30 63 20}
+      }
+      Fl_Button btn_canc_venda {
+        label button
+        xywh {1210 30 63 20}
+      }
+      Fl_Button btn_visu_vendas {
+        label button
+        xywh {1210 30 63 20}
+      }
     }
-  }
-}
-
-Function {estoque_window()} {open
-} {
-  Fl_Window {} {
-    label ESTOQUE open
-    xywh {1 18 1364 739} type Double size_range {1364 739 1364 739} visible
-  } {
-    Fl_Return_Button {} {
-      label Voltar
-      xywh {1195 50 110 25}
-    }
-    Fl_Button {} {
-      label {Cadastar Produto}
-      xywh {1030 165 230 35}
-    }
-    Fl_Button {} {
-      label {Excluir Produto}
-      xywh {1030 295 230 35}
-    }
-    Fl_Button {} {
-      label {Editar Produto}
-      xywh {1030 230 230 35}
+    Fl_Group tela_menu_estoque {open
+      xywh {25 25 1285 310} hide
+    } {
+      Fl_Return_Button btn_retornar_menu {
+        label Voltar
+        xywh {1200 55 110 25}
+      }
+      Fl_Button cad_prod_estoque {
+        label {Cadastar Produto}
+        xywh {1035 170 230 35}
+      }
+      Fl_Button exc_prod_estoque {
+        label {Excluir Produto}
+        xywh {1035 300 230 35}
+      }
+      Fl_Button edt_prod_estoque {
+        label {Editar Produto}
+        xywh {1035 235 230 35}
+      }
     }
   }
 }
