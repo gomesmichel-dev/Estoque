@@ -1,0 +1,45 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0309
+header_name {.h}
+code_name {.cxx}
+Function {main_window()} {open
+} {
+  Fl_Window {} {
+    label MENU open
+    xywh {1 18 1364 739} type Double box THIN_UP_BOX hide size_range {1364 739 1364 739}
+  } {
+    Fl_Button {} {
+      label VENDAS
+      xywh {1050 130 230 35}
+    }
+    Fl_Button {} {
+      label ESTOQUE
+      xywh {1050 225 230 35}
+    }
+  }
+}
+
+Function {estoque_window()} {open
+} {
+  Fl_Window {} {
+    label ESTOQUE open
+    xywh {1 18 1364 739} type Double size_range {1364 739 1364 739} visible
+  } {
+    Fl_Return_Button {} {
+      label Voltar
+      xywh {1195 50 110 25}
+    }
+    Fl_Button {} {
+      label {Cadastar Produto}
+      xywh {1030 165 230 35}
+    }
+    Fl_Button {} {
+      label {Excluir Produto}
+      xywh {1030 295 230 35}
+    }
+    Fl_Button {} {
+      label {Editar Produto}
+      xywh {1030 230 230 35}
+    }
+  }
+}
