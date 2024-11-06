@@ -2,33 +2,35 @@
 
 #include "layout.h"
 
+extern Fl_Group* menu_group;
+
+
 Fl_Double_Window* main_window() {
   Fl_Double_Window* w;
-  { Fl_Double_Window* o = new Fl_Double_Window(1364, 739, "MENU");
+  { Fl_Double_Window* o = new Fl_Double_Window(681, 756, "MENU");
     w = o; if (w) {/* empty */}
     o->box(FL_THIN_UP_BOX);
-    { new Fl_Button(1050, 130, 230, 35, "VENDAS");
-    } // Fl_Button* o
-    { new Fl_Button(1050, 225, 230, 35, "ESTOQUE");
-    } // Fl_Button* o
-    o->size_range(1364, 739, 1364, 739);
-    o->end();
-  } // Fl_Double_Window* o
-  return w;
-}
-
-Fl_Double_Window* estoque_window() {
-  Fl_Double_Window* w;
-  { Fl_Double_Window* o = new Fl_Double_Window(1364, 739, "ESTOQUE");
-    w = o; if (w) {/* empty */}
-    { new Fl_Return_Button(1195, 50, 110, 25, "Voltar");
-    } // Fl_Return_Button* o
-    { new Fl_Button(1030, 165, 230, 35, "Cadastar Produto");
-    } // Fl_Button* o
-    { new Fl_Button(1030, 295, 230, 35, "Excluir Produto");
-    } // Fl_Button* o
-    { new Fl_Button(1030, 230, 230, 35, "Editar Produto");
-    } // Fl_Button* o
+    { Fl_Group* o = new Fl_Group(25, 25, 15, 15, "menu");
+      { new Fl_Button(1055, 135, 230, 35, "VENDAS");
+      } // Fl_Button* o
+      { new Fl_Button(1055, 230, 230, 35, "ESTOQUE");
+      } // Fl_Button* o
+      o->end();
+    } // Fl_Group* o
+    { Fl_Group* o = new Fl_Group(25, 25, 15, 15, "estoque");
+      { new Fl_Return_Button(1200, 55, 110, 25, "Voltar");
+      } // Fl_Return_Button* o
+      { new Fl_Button(1035, 170, 230, 35, "Cadastar Produto");
+      } // Fl_Button* o
+      { new Fl_Button(1035, 300, 230, 35, "Excluir Produto");
+      } // Fl_Button* o
+      { new Fl_Button(1035, 235, 230, 35, "Editar Produto");
+      } // Fl_Button* o
+      o->end();
+    } // Fl_Group* o
+    { Fl_Group* o = new Fl_Group(25, 25, 15, 15, "venda");
+      o->end();
+    } // Fl_Group* o
     o->size_range(1364, 739, 1364, 739);
     o->end();
   } // Fl_Double_Window* o

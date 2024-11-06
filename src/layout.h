@@ -4,8 +4,8 @@
 #define layout_h
 #include <FL/Fl.H>
 #include <FL/Fl_Double_Window.H>
+#include <FL/Fl_Group.H>
 #include <FL/Fl_Button.H>
-Fl_Double_Window* main_window();
 #include <FL/Fl_Return_Button.H>
-Fl_Double_Window* estoque_window();
+Fl_Double_Window* main_window();
 #endif
