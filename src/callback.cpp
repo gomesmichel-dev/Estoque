@@ -3,27 +3,35 @@
 #include <FL/Fl_Group.H>
 #include <iostream>
 
-extern Fl_Group* tela_menu;
-extern Fl_Group* tela_menu_venda;
-extern Fl_Group* tela_menu_estoque;
+extern Fl_Group* menu;
+extern Fl_Group* menu_venda;
+extern Fl_Group* menu_estoque;
 
 
 void show_menu(Fl_Widget* widget, void* data){
-   tela_menu->show();
-   tela_menu_venda->hide();
-   tela_menu_estoque->hide();
+   menu->show();
+   menu_venda->hide();
+   menu_estoque->hide();
 }
 
 void show_venda(Fl_Widget* widget, void* data){
-   tela_menu_venda->show();
-   tela_menu->hide();
-   tela_menu_estoque->hide();
+   menu_venda->show();
+   menu_estoque->hide();
+   menu->hide();
    std::cout <<"janela venda" << std::endl;
 
 }
 
 void show_estoque(Fl_Widget* widget, void* data){
-   tela_menu_estoque->show();
-   tela_menu->hide();
-   tela_menu_venda->hide();
+   menu_estoque->show();
+   menu_venda->hide();
+   menu->hide();
+}
+
+void show_cad_prod(Fl_Widget* widget, void* data){
+   menu_cad_prod->show(); 
+   menu_estoque->hide();
+   menu->hide();
+   menu_venda->hide();
+   std::cout << "era pra ta cadastrando" << std::endl;
 }

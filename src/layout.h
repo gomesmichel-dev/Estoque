@@ -2,26 +2,35 @@
 
 #ifndef layout_h
 #define layout_h
+#include "callback.h"
 #include <FL/Fl.H>
 #include <FL/Fl_Double_Window.H>
-extern Fl_Double_Window *tela_principal;
 #include <FL/Fl_Group.H>
-extern Fl_Group *tela_menu;
 #include <FL/Fl_Button.H>
-extern void tela_venda(Fl_Button*, void*);
-extern Fl_Button *btn_tela_venda;
-extern Fl_Button *btn_tela_estoque;
-extern Fl_Group *tela_menu_venda;
 #include <FL/Fl_Return_Button.H>
-extern Fl_Return_Button *btn_menu_venda;
+
+extern Fl_Double_Window *tela_principal;
+
+extern Fl_Group *menu;
+extern Fl_Button *btn_menu_venda;
+extern Fl_Button *btn_menu_estoque;
+
+//extern void tela_venda(Fl_Button*, void*);
+extern Fl_Group *menu_venda;
 extern Fl_Button *btn_nova_venda;
 extern Fl_Button *btn_canc_venda;
 extern Fl_Button *btn_visu_vendas;
+
 extern Fl_Group *tela_menu_estoque;
-extern Fl_Return_Button *btn_menu_estoque;
 extern Fl_Button *cad_prod_estoque;
-extern Fl_Button *exc_prod_estoque;
 extern Fl_Button *edt_prod_estoque;
+extern Fl_Button *exc_prod_estoque;
+
+extern Fl_Return_Button *btn_voltar;
+
+extern Fl_Group *menu_cad_prod;
+#include <FL/Fl_Input_Choice.H>
+#include <FL/Fl_Input.H>
+
 Fl_Double_Window* main_window();
-#include "callback.h"
 #endif

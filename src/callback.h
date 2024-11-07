@@ -7,5 +7,6 @@
 void show_menu(Fl_Widget* widget, void*data);
 void show_estoque(Fl_Widget* widget, void* data);
 void show_venda(Fl_Widget* widget, void* data);
+void show_cad_prod(Fl_Widget* widget, void* data);
 
 #endif // CALLBACKS_H
