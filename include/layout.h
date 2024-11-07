@@ -2,12 +2,15 @@
 
 #ifndef layout_h
 #define layout_h
-#include "callback.h"
+
+#include "../include/callback.h"
 #include <FL/Fl.H>
 #include <FL/Fl_Double_Window.H>
 #include <FL/Fl_Group.H>
 #include <FL/Fl_Button.H>
 #include <FL/Fl_Return_Button.H>
+#include <FL/Fl_Input_Choice.H>
+#include <FL/Fl_Input.H>
 
 extern Fl_Double_Window *tela_principal;
 
@@ -28,20 +31,17 @@ extern Fl_Button *exc_prod_estoque;
 
 extern Fl_Return_Button *btn_voltar;
 
+
 extern Fl_Group *menu_cad_prod;
-#include <FL/Fl_Input_Choice.H>
-#include <FL/Fl_Input.H>
-Fl_Input_Choice* in_nome_prod;
-Fl_Input_Choice* in_marca_prod;
-Fl_Input_Choice* in_categoria_prod;
-Fl_Input_Choice* in_caracteristica_prod;
-Fl_Input_Choice* in_tamanho_prod;
-Fl_Input_Choice* in_fornecedor_prod;
-Fl_Input* in_prc_compra_prod;
-Fl_Input* in_prc_venda_prod;
 
-
-
+extern Fl_Input_Choice *in_nome_prod;
+extern Fl_Input_Choice *in_marca_prod;
+extern Fl_Input_Choice *in_categoria_prod;
+extern Fl_Input_Choice *in_caracteristica_prod;
+extern Fl_Input_Choice *in_tamanho_prod;
+extern Fl_Input_Choice *in_fornecedor_prod;
+extern Fl_Input *in_prc_compra_prod;
+extern Fl_Input *in_prc_venda_prod;
 
 
 Fl_Double_Window* main_window();

@@ -21,8 +21,7 @@ void show_venda(Fl_Widget* widget, void* data){
    menu_estoque->hide();
    menu->hide();
    menu_cad_prod->hide(); 
-
-   std::cout <<"janela venda" << std::endl;
+   ///std::cout <<"janela venda" << std::endl;
 
 }
 
@@ -39,5 +38,5 @@ void show_cad_prod(Fl_Widget* widget, void* data){
    menu_estoque->hide();
    menu->hide();
    menu_venda->hide();
-   std::cout << "era pra ta cadastrando" << std::endl;
+   ///std::cout << "era pra ta cadastrando" << std::endl;
 }

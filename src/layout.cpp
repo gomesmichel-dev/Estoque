@@ -17,9 +17,18 @@ Fl_Group *menu_venda=(Fl_Group *)0;
 Fl_Group *menu_estoque=(Fl_Group *)0;
   Fl_Button *cad_prod_estoque=(Fl_Button *)0;
   Fl_Button *edt_prod_estoque=(Fl_Button *)0;
-  Fl_Group *menu_cad_prod=(Fl_Group *)0;
   Fl_Button *exc_prod_estoque=(Fl_Button *)0;
   
+Fl_Group *menu_cad_prod=(Fl_Group *)0; // Initialize appropriately
+Fl_Input_Choice *in_nome_prod=(Fl_Input_Choice *)0;
+Fl_Input_Choice *in_marca_prod=(Fl_Input_Choice *)0;
+Fl_Input_Choice *in_categoria_prod=(Fl_Input_Choice *)0;
+Fl_Input_Choice *in_caracteristica_prod=(Fl_Input_Choice *)0;
+Fl_Input_Choice *in_tamanho_prod=(Fl_Input_Choice *)0;
+Fl_Input_Choice *in_fornecedor_prod=(Fl_Input_Choice *)0;
+Fl_Input *in_prc_compra_prod=(Fl_Input *)0;
+Fl_Input *in_prc_venda_prod=(Fl_Input *)0;
+
   //botão retornar menu
 Fl_Return_Button *btn_voltar=(Fl_Return_Button *)0;
 
@@ -29,7 +38,7 @@ Fl_Double_Window* main_window() {
   { tela_principal = new Fl_Double_Window(1364, 739, "GOMES CORP");
     tela_principal->box(FL_THIN_UP_BOX);
     
-    {   menu = new Fl_Group(15, 25, 1330, 695);
+    {   menu = new Fl_Group(25, 25, 1330, 695);
       
       { btn_tela_venda = new Fl_Button(1005, 130, 300, 35, "Vender");
         btn_tela_venda->callback((Fl_Callback*)show_venda);
@@ -41,7 +50,7 @@ Fl_Double_Window* main_window() {
       menu->end();
     } // Fl_Group* tela_menu
     
-    { menu_venda = new Fl_Group(25, 25, 1295, 65);
+    { menu_venda = new Fl_Group(25, 25, 1330, 695);
       menu_venda->hide();
       { btn_nova_venda = new Fl_Button(1005, 130, 300, 35, "Nova venda");
       } // Fl_Button* btn_nova_venda
@@ -56,7 +65,7 @@ Fl_Double_Window* main_window() {
       menu_venda->end();
     } // Fl_Group* tela_menu_venda
     
-    { menu_estoque = new Fl_Group(25, 25, 1285, 310);
+    { menu_estoque = new Fl_Group(25, 25, 1330, 695);
       menu_estoque->hide();
       { cad_prod_estoque = new Fl_Button(1005, 130, 300, 35, "Cadastar Produto");
         cad_prod_estoque->callback((Fl_Callback*)show_cad_prod);
@@ -71,7 +80,7 @@ Fl_Double_Window* main_window() {
       menu_estoque->end();
     } // Fl_Group* tela_menu_estoque
     
-    { menu_cad_prod = new Fl_Group(25, 25, 1285, 310);
+    { menu_cad_prod = new Fl_Group(25, 25, 1330, 695);
         menu_cad_prod->hide();
         { in_nome_prod = new Fl_Input_Choice(505, 50, 110, 35, "Nome do Produto");
         } // Fl_Input_Choice* o
