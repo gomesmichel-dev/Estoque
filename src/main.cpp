@@ -2,6 +2,7 @@
 #include <FL/Fl_Double_Window.H>
 #include "../include/layout.h"
 #include "../include/callback.h"
+#include "../include/database.h"
 
 int main() {
     sqlite3* db;

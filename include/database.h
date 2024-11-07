@@ -1,12 +1,11 @@
-#ifndef DATABASE_h
-#define DATABASE_h
+#ifndef DATABASE_H
+#define DATABASE_H
 
 #include <sqlite3.h>
-#include <FL/Fl_Choice.H>
-#include <FL/Fl_Input.H>
 
-//conectar o banco de dados
+extern sqlite3* db;  // Declare a variável global aqui
 
-bool conectarBanco(sqlite3** db){
-   int exit = sqlite3_open("../db/estoque.db")
-}
+// Conectar o banco de dados
+bool conectarBanco(sqlite3** db);
+
+#endif // DATABASE_H

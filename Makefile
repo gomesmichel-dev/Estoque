@@ -1,5 +1,7 @@
 CXX = g++
 CXXFLAGS = -std=c++11 -Wall
+CXXFLAGS = -std=c++11 -Wall  -I/usr/include
+
 LDFLAGS = -lfltk
 
 SRC_DIR = src
@@ -14,7 +16,7 @@ create_dirs:
 	mkdir -p $(BIN_DIR)
 
 sistema_estoque_vendas: $(OBJ)
-	$(CXX) $(OBJ) -o $@ $(LDFLAGS)
+	$(CXX) $(OBJ) -o $@ $(LDFLAGS) -lfltk -lsqlite3
 
 $(BIN_DIR)/%.cpp.o: $(SRC_DIR)/%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@

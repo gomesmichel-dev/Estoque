@@ -67,23 +67,36 @@ void cadastrar_produto(Fl_Widget*, void*){
 
       int marca_id = inserirOuObterMarca(marca);
       if (marca_id == -1){
-         std::cerr << "Erro ao inserir ou obter marca."
+         std::cerr << "Erro ao inserir ou obter marca.";
          return;
       }
 
-        int tipo_id = inserirOuObtertipo(tipo);
-      if (tipo_id == -1){
-         std::cerr << "Erro ao inserir ou obter tipo."
-         return;
-      }
+   int inserirOuObterTipo(const std::string& tipo) {
+    std::string sql_select = "SELECT id_tipo FROM tipo WHERE nome_tipo = ?;";
+    sqlite3_stmt* stmt;
+    int tipo_id = -1;
+    
+    if (sqlite3_prepare_v2(db, sql_select.c_str(), -1, &stmt, nullptr) == SQLITE_OK) {
+        sqlite3_bind_text(stmt, 1, tipo.c_str(), -1, SQLITE_STATIC);
+        if (sqlite3_step(stmt) == SQLITE_ROW) {
+            tipo_id = sqlite3_column_int(stmt, 0);
+        }
+        sqlite3_finalize(stmt);
+    }
 
-      std::string sql = "INSERT INTO produto (nome_prod, marca_prod, tipo_prod, modelo_prod, descricao_prod, obs_prod) VALUES (?, ?, ?, ?, ?, ?);";
-      sqlite3_stmt* stmt;
+    if (tipo_id == -1) {
+        std::string sql_insert = "INSERT INTO tipo (nome_tipo) VALUES (?);";
+        if (sqlite3_prepare_v2(db, sql_insert.c_str(), -1, &stmt, nullptr) == SQLITE_OK) {
+            sqlite3_bind_text(stmt, 1, tipo.c_str(), -1, SQLITE_STATIC);
+            if (sqlite3_step(stmt) == SQLITE_DONE) {
+                tipo_id = sqlite3_last_insert_rowid(db);
+            }
+            sqlite3_finalize(stmt);
+        }
+    }
 
-      if (sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, nullptr) != SQLITE3_OK){
-         std::cerr << "Erro ao preparar a inserção: " << sqlite3_errmsg(db) << std::endl;
-         return;
-      }
+    return tipo_id;
+}
       
       sqlite3_bind_text(stmt, 1, nome.c_str(), -1, SQLITE_STATIC);
       sqlite3_bind_int(stmt, 2, marca_id);
@@ -111,28 +124,29 @@ void cadastrar_produto(Fl_Widget*, void*){
 
    }
 
-int iserirOuObterMarca(const std::string& marca){
-   std::string SQLITE_SELECT = "SELECT id_marca FROM marca WHERE nome_marca = ?;";
+int inserirOuObterMarca(const std::string& marca){
+   std::string sql_select = "SELECT id_marca FROM marca WHERE nome_marca = ?;";
    sqlite3_stmt* stmt;
    int marca_id = -1;
    
-   if (sqlite3_prepare_v2(db, SQLITE_SELECT.c_str(), -1, &stmt, nullptr) == SQLITE_OK){
-      sqlite3_bind_text(stmt, 1 marca.c_str() -1, SQLITE_STATIC);
+   if (sqlite3_prepare_v2(db, sql_select.c_str(), -1, &stmt, nullptr) == SQLITE_OK){
+      sqlite3_bind_text(stmt, 1, marca.c_str(), -1, SQLITE_STATIC);
       if (sqlite3_step(stmt) == SQLITE_ROW){
          marca_id = sqlite3_column_int(stmt, 0);
-   }
-   sqlite3_finalize(stmt);
-}
-
-if (marca_id == 1){
-   std::string sql_insert = "INSERT INTO marca (nome_marca) VALUES (?);";
-   if (sqlite3_prepare_v2(db, sql_insert.c_str(), -1 &stmt, nullptr) == SQLITE_OK){
-      sqlite3_bind_text(stmt, 1, marca.c_str(), -1, SQLITE_STATIC);
-      if (sqlite3_step(stmt) == SQLITE_DONE){
-         marca_id = sqlite3_last_insert_rowid(db);
-}
+      }
       sqlite3_finalize(stmt);
    }
-}
 
-int inserir
+   if (marca_id == -1){
+      std::string sql_insert = "INSERT INTO marca (nome_marca) VALUES (?);";
+      if (sqlite3_prepare_v2(db, sql_insert.c_str(), -1, &stmt, nullptr) == SQLITE_OK){
+         sqlite3_bind_text(stmt, 1, marca.c_str(), -1, SQLITE_STATIC);
+         if (sqlite3_step(stmt) == SQLITE_DONE){
+            marca_id = sqlite3_last_insert_rowid(db);
+         }
+         sqlite3_finalize(stmt);
+      }
+   }
+
+   return marca_id;
+}
