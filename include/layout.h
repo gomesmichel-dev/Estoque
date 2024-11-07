@@ -31,6 +31,18 @@ extern Fl_Return_Button *btn_voltar;
 extern Fl_Group *menu_cad_prod;
 #include <FL/Fl_Input_Choice.H>
 #include <FL/Fl_Input.H>
+Fl_Input_Choice* in_nome_prod;
+Fl_Input_Choice* in_marca_prod;
+Fl_Input_Choice* in_categoria_prod;
+Fl_Input_Choice* in_caracteristica_prod;
+Fl_Input_Choice* in_tamanho_prod;
+Fl_Input_Choice* in_fornecedor_prod;
+Fl_Input* in_prc_compra_prod;
+Fl_Input* in_prc_venda_prod;
+
+
+
+
 
 Fl_Double_Window* main_window();
 #endif

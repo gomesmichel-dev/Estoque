@@ -1,7 +1,7 @@
 #include <FL/Fl.H>
 #include <FL/Fl_Double_Window.H>
-#include "layout.h"
-#include "callback.h"
+#include "../include/layout.h"
+#include "../include/callback.h"
 
 int main() {
     Fl_Double_Window* window = main_window();  // Cria a janela
