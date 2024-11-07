@@ -4,6 +4,10 @@
 #include "../include/callback.h"
 
 int main() {
+    sqlite3* db;
+    if (!conectarBanco(&db)){
+        return -1;
+    }
     Fl_Double_Window* window = main_window();  // Cria a janela
     window->show();  // Exibe a janela
     return Fl::run();  // Inicia o loop de eventos

@@ -26,6 +26,8 @@ Fl_Input_Choice *in_categoria_prod=(Fl_Input_Choice *)0;
 Fl_Input_Choice *in_caracteristica_prod=(Fl_Input_Choice *)0;
 Fl_Input_Choice *in_tamanho_prod=(Fl_Input_Choice *)0;
 Fl_Input_Choice *in_fornecedor_prod=(Fl_Input_Choice *)0;
+Fl_Input *in_prc_descricao_prod=(Fl_Input *)0;
+Fl_Input *in_prc_obs_prod=(Fl_Input *)0;
 Fl_Input *in_prc_compra_prod=(Fl_Input *)0;
 Fl_Input *in_prc_venda_prod=(Fl_Input *)0;
 Fl_Button *btn_confir_cadastro=(Fl_Button *)0;
@@ -96,9 +98,13 @@ Fl_Double_Window* main_window() {
         } // Fl_Input_Choice* o
         { in_fornecedor_prod = new Fl_Input_Choice(505, 300, 300, 35, "fornecedor");
         } // Fl_Input_Choice* o
-        {  in_prc_compra_prod = new Fl_Input(505, 350, 300, 35, "pre\303\247o de compra");
+        { in_descricao_prod = new Fl_Input(505, 350, 300, 35, "descricao");
+        } // Fl_Input_Choice* o
+        { in_obs_prod = new Fl_Input(505, 400, 300, 35, "obs");
+        } // Fl_Input_Choice* o
+        {  in_prc_compra_prod = new Fl_Input(505, 450, 300, 35, "pre\303\247o de compra");
         } // Fl_Input* o
-        { in_prc_venda_prod = new Fl_Input(505, 400, 300, 35, "pre\303\247o de venda");
+        { in_prc_venda_prod = new Fl_Input(505, 500, 300, 35, "pre\303\247o de venda");
         } // Fl_Input* o
         { btn_confir_cadastro = new Fl_Return_Button(1005, 430, 300, 25, "Cadastrar");
           btn_confir_cadastro->callback((Fl_Callback*)0);
