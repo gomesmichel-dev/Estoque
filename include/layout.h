@@ -42,7 +42,7 @@ extern Fl_Input_Choice *in_tamanho_prod;
 extern Fl_Input_Choice *in_fornecedor_prod;
 extern Fl_Input *in_prc_compra_prod;
 extern Fl_Input *in_prc_venda_prod;
-
+extern Fl_Button *btn_confir_cadastro;
 
 Fl_Double_Window* main_window();
 #endif
