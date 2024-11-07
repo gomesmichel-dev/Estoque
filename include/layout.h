@@ -3,7 +3,6 @@
 #ifndef layout_h
 #define layout_h
 
-#include "../include/callback.h"
 #include <FL/Fl.H>
 #include <FL/Fl_Double_Window.H>
 #include <FL/Fl_Group.H>
@@ -11,6 +10,7 @@
 #include <FL/Fl_Return_Button.H>
 #include <FL/Fl_Input_Choice.H>
 #include <FL/Fl_Input.H>
+#include "../include/callback.h"
 
 extern Fl_Double_Window *tela_principal;
 
