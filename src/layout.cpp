@@ -107,7 +107,7 @@ Fl_Double_Window* main_window() {
         { in_prc_venda_prod = new Fl_Input(505, 500, 300, 35, "pre\303\247o de venda");
         } // Fl_Input* o
         { btn_confir_cadastro = new Fl_Return_Button(1005, 430, 300, 25, "Cadastrar");
-          btn_confir_cadastro->callback((Fl_Callback*)0);
+          btn_confir_cadastro->callback((Fl_Callback*)cadastrar_produto);
         } 
         { btn_voltar = new Fl_Return_Button(1005, 530, 300, 25, "Voltar");
           btn_voltar->callback((Fl_Callback*)show_estoque);
