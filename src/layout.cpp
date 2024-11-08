@@ -20,7 +20,7 @@ Fl_Group *menu_estoque=(Fl_Group *)0;
   Fl_Button *exc_prod_estoque=(Fl_Button *)0;
   
 Fl_Group *menu_cad_prod=(Fl_Group *)0; // Initialize appropriately
-Fl_Input_Choice *in_nome_prod=(Fl_Input_Choice *)0;
+Fl_Input *in_nome_prod=(Fl_Input *)0;
 Fl_Input_Choice *in_marca_prod=(Fl_Input_Choice *)0;
 Fl_Input_Choice *in_categoria_prod=(Fl_Input_Choice *)0;
 Fl_Input_Choice *in_caracteristica_prod=(Fl_Input_Choice *)0;
@@ -86,7 +86,7 @@ Fl_Double_Window* main_window() {
     
     { menu_cad_prod = new Fl_Group(25, 25, 1330, 695);
         menu_cad_prod->hide();
-        { in_nome_prod = new Fl_Input_Choice(505, 50, 300, 35, "Nome do Produto");
+        { in_nome_prod = new Fl_Input(505, 50, 300, 35, "Nome do Produto");
         } // Fl_Input_Choice* o
         { in_marca_prod = new Fl_Input_Choice(505, 100, 300, 35, "Marca");
         } // Fl_Input_Choice* o
@@ -107,7 +107,7 @@ Fl_Double_Window* main_window() {
         { in_prc_venda_prod = new Fl_Input(505, 500, 300, 35, "pre\303\247o de venda");
         } // Fl_Input* o
         { btn_confir_cadastro = new Fl_Return_Button(1005, 430, 300, 25, "Cadastrar");
-          btn_confir_cadastro->callback((Fl_Callback*)cadastrar_produto);
+          btn_confir_cadastro->callback((Fl_Callback*)0);
         } 
         { btn_voltar = new Fl_Return_Button(1005, 530, 300, 25, "Voltar");
           btn_voltar->callback((Fl_Callback*)show_estoque);

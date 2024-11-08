@@ -34,7 +34,7 @@ extern Fl_Return_Button *btn_voltar;
 
 extern Fl_Group *menu_cad_prod;
 
-extern Fl_Input_Choice *in_nome_prod;
+extern Fl_Input *in_nome_prod;
 extern Fl_Input_Choice *in_marca_prod;
 extern Fl_Input_Choice *in_categoria_prod;
 extern Fl_Input_Choice *in_caracteristica_prod;
