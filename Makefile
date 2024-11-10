@@ -1,14 +1,36 @@
+# Variáveis de compilação
 CXX = g++
-CXXFLAGS = -std=c++11 -Wall
-LDFLAGS = -lfltk
+CXXFLAGS = -std=c++11 -Wall -g -O0 -I/usr/include
 
-SRC = src/main.cpp src/layout.cxx src/callback.cpp
-OBJ = $(SRC:.cpp=.o)
+LDFLAGS = -lfltk -lsqlite3
 
-all: sistema_estoque_vendas
+# Diretórios
+SRC_DIR = src
+BIN_DIR = bin
 
+# Arquivos de origem e objetos
+SRC = $(wildcard $(SRC_DIR)/*.cpp) $(wildcard $(SRC_DIR)/*.cxx)
+OBJ = $(SRC:$(SRC_DIR)/%=$(BIN_DIR)/%.o)
+
+# Tarefa principal
+all: create_dirs sistema_estoque_vendas
+
+# Criação dos diretórios bin
+create_dirs:
+	mkdir -p $(BIN_DIR)
+
+# Compilação final do executável
 sistema_estoque_vendas: $(OBJ)
-	$(CXX) $(OBJ) -o sistema_estoque_vendas $(LDFLAGS)
+	$(CXX) $(OBJ) -o $@ $(LDFLAGS)
 
+# Compilação de arquivos .cpp para .o
+$(BIN_DIR)/%.cpp.o: $(SRC_DIR)/%.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Compilação de arquivos .cxx para .o
+$(BIN_DIR)/%.cxx.o: $(SRC_DIR)/%.cxx
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Limpeza de arquivos gerados
 clean:
-	rm -f $(OBJ) sistema_estoque_vendas
+	rm -rf $(BIN_DIR) sistema_estoque_vendas
