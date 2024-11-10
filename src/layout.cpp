@@ -36,7 +36,13 @@ Fl_Input *in_prc_compra_prod=(Fl_Input *)0;
 Fl_Input *in_prc_venda_prod=(Fl_Input *)0;
 Fl_Button *btn_confir_cadastro=(Fl_Button *)0;
 
+Fl_Group *menu_cad_marca=(Fl_Group *)0;
+Fl_Input *in_nome_marca=(Fl_Input *)0; 
+Fl_Input_Choice *in_fornecedor_marca=(Fl_Input_Choice *)0;
 
+Fl_Group *menu_cad_fornecedor=(Fl_Group *)0;
+Fl_Input *in_nome_fornecedor=(Fl_Input *)0; 
+Fl_Input *in_telefone_fornecedor=(Fl_Input *)0;
   //botão retornar menu
 Fl_Return_Button *btn_voltar=(Fl_Return_Button *)0;
 
@@ -78,12 +84,12 @@ Fl_Double_Window* main_window() {
       {seletor_cadastro = new Fl_Choice(400, 130, 300, 35, "Selecione Para cadastrar");
         nomeTabelas(seletor_cadastro);
       }
-      { cad_prod_estoque = new Fl_Button(1005, 130, 300, 35, "Cadastar Produto");
-        cad_prod_estoque->callback((Fl_Callback*)show_cad_prod);
+      { cad_prod_estoque = new Fl_Button(1005, 130, 300, 35, "Cadastar");
+        cad_prod_estoque->callback((Fl_Callback*)escolha_cadastro);
       } // Fl_Button* cad_prod_estoque
-      { edt_prod_estoque = new Fl_Button(1005, 230, 300, 35, "Editar Produto");
+      { edt_prod_estoque = new Fl_Button(1005, 230, 300, 35, "Editar");
       } // Fl_Button* edt_prod_estoque
-      { exc_prod_estoque = new Fl_Button(1005, 330, 300, 35, "Excluir Produto");
+      { exc_prod_estoque = new Fl_Button(1005, 330, 300, 35, "Excluir");
       } // Fl_Button* exc_prod_estoque
       { btn_voltar = new Fl_Return_Button(1005, 530, 110, 25, "Voltar");
         btn_voltar->callback((Fl_Callback*)show_menu);
@@ -91,9 +97,6 @@ Fl_Double_Window* main_window() {
       menu_estoque->end();
     } // Fl_Group* tela_menu_estoque
     
-    { menu_cad_prod = new Fl_Group(25, 25, 800, 695);
-        menu_cad_prod->hide();
-    }
     { menu_cad_prod = new Fl_Group(25, 25, 1330, 695);
         menu_cad_prod->hide();
        
@@ -126,6 +129,36 @@ Fl_Double_Window* main_window() {
         menu_cad_prod->end();
       } // Fl_Group* tela_cad_prod
     
+    {menu_cad_marca = new Fl_Group(25, 25, 1330, 695);
+        menu_cad_marca->hide();
+        { in_nome_marca = new Fl_Input(505, 50, 300, 35, "Nome da Marca");
+        } // Fl_Input_Choice* o
+        { in_fornecedor_marca = new Fl_Input_Choice(505, 100, 300, 35, "Fornecedor");
+        } // Fl_Input_Choice* o    
+        { btn_confir_cadastro = new Fl_Return_Button(1005, 430, 300, 25, "Cadastrar");
+          btn_confir_cadastro->callback((Fl_Callback*)show_cad_prod);
+        } 
+        { btn_voltar = new Fl_Return_Button(1005, 530, 300, 25, "Voltar");
+          btn_voltar->callback((Fl_Callback*)show_estoque);
+        } // Fl_Return_Button* btn_menu_venda
+        menu_cad_marca->end();
+      } // Fl_Group* tela_cad_marca
+         
+      {menu_cad_fornecedor = new Fl_Group(25, 25, 1330, 695);
+      menu_cad_fornecedor->hide();
+      { in_nome_fornecedor = new Fl_Input(505, 50, 300, 35, "Nome do Fornecedor");
+      } // Fl_Input_Choice* o
+      { in_telefone_fornecedor = new Fl_Input(505, 100, 300, 35, "Telefone do Fornecedor");
+      } // Fl_Input_Choice* o    
+      { btn_confir_cadastro = new Fl_Return_Button(1005, 430, 300, 25, "Cadastrar");
+        btn_confir_cadastro->callback((Fl_Callback*)show_cad_prod);
+      } 
+      { btn_voltar = new Fl_Return_Button(1005, 530, 300, 25, "Voltar");
+        btn_voltar->callback((Fl_Callback*)show_estoque);
+      } // Fl_Return_Button* btn_menu_venda
+      menu_cad_marca->end();
+      } // Fl_Group* tela_cad_marca
+
     tela_principal->size_range(1364, 739, 1364, 739);
     tela_principal->end();
   } // Fl_Double_Window* tela_principal

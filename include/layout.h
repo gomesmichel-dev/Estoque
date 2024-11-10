@@ -19,7 +19,6 @@ extern Fl_Group *menu;
 extern Fl_Button *btn_menu_venda;
 extern Fl_Button *btn_menu_estoque;
 
-//extern void tela_venda(Fl_Button*, void*);
 extern Fl_Group *menu_venda;
 extern Fl_Button *btn_nova_venda;
 extern Fl_Button *btn_canc_venda;
@@ -49,6 +48,14 @@ extern Fl_Button *btn_confir_cadastro;
 
 extern Fl_Group *menu_seleção;
 extern Fl_Choice *seletor_cadastro;
+
+extern Fl_Group *menu_cad_marca;
+extern Fl_Input *in_nome_marca;
+extern Fl_Input_Choice *in_fornecedor_marca;
+
+extern Fl_Group *menu_cad_fornecedor;
+extern Fl_Input *in_nome_fornecedor; 
+extern Fl_Input *in_telefone_fornecedor;
 
 Fl_Double_Window* main_window();
 #endif

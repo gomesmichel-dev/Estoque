@@ -42,9 +42,7 @@ void nomeTabelas(Fl_Choice* choice){
    std::vector<std::string> sequenciaPersonalizada = {
         "produto", 
         "marca",
-        "linha",
-        "categoria",
-        "Fornecedor"
+        "fornecedor"
     };
 
      for (const auto& tabela : sequenciaPersonalizada) {
