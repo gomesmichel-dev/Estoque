@@ -6,5 +6,5 @@
 extern sqlite3* db;
 
 int conectarNoBanco(const std::string& dbName);
-
+void nomeTabelas(Fl_Choice* choice);
 #endif

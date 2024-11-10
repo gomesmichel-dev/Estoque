@@ -2,7 +2,7 @@
 
 #include "../include/layout.h"
 #include "../include/callback.h"
-
+#include "../include/database.h"
 Fl_Double_Window *tela_principal=(Fl_Double_Window *)0;
 
 Fl_Group *menu=(Fl_Group *)0;
@@ -76,6 +76,7 @@ Fl_Double_Window* main_window() {
     { menu_estoque = new Fl_Group(25, 25, 1330, 695);
       menu_estoque->hide();
       {seletor_cadastro = new Fl_Choice(400, 130, 300, 35, "Selecione Para cadastrar");
+        nomeTabelas(seletor_cadastro);
       }
       { cad_prod_estoque = new Fl_Button(1005, 130, 300, 35, "Cadastar Produto");
         cad_prod_estoque->callback((Fl_Callback*)show_cad_prod);
