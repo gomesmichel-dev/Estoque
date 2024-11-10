@@ -11,6 +11,7 @@
 #include <FL/Fl_Input_Choice.H>
 #include <FL/Fl_Input.H>
 #include "../include/callback.h"
+#include <FL/Fl_Choice.H>
 
 extern Fl_Double_Window *tela_principal;
 
@@ -45,6 +46,9 @@ extern Fl_Input *in_prc_venda_prod;
 extern Fl_Input *in_descricao_prod;
 extern Fl_Input *in_obs_prod;
 extern Fl_Button *btn_confir_cadastro;
+
+extern Fl_Group *menu_seleção;
+extern Fl_Choice *seletor_cadastro;
 
 Fl_Double_Window* main_window();
 #endif
