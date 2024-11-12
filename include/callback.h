@@ -15,8 +15,8 @@ void show_venda(Fl_Widget* widget, void* data);
 void show_cad_prod(Fl_Widget* widget, void* data);
 void cadastrar_produto(Fl_Widget*, void*);
 void escolha_cadastro(Fl_Widget* widget, void* data);
-void cadastroProduto();
-void cadastroMarca();
-void cadastroFornecedor();
+void show_cad_prod(Fl_Widget* widget, void* data);
+void show_cad_fornecedor(Fl_Widget* widget, void* data);
+void show_menu_venda(Fl_Widget* widget, void* data);
 
 #endif // CALLBACK_H

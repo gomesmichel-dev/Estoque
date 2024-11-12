@@ -24,7 +24,14 @@ extern Fl_Button *btn_nova_venda;
 extern Fl_Button *btn_canc_venda;
 extern Fl_Button *btn_visu_vendas;
 
-extern Fl_Group *tela_menu_estoque;
+extern Fl_Group *menu_nova_venda;
+extern Fl_Return_Button *btn_confir_venda;
+extern Fl_Input *in_produto_venda;
+
+//extern  *busca_lista_venda;
+
+
+extern Fl_Group *menu_estoque;
 extern Fl_Button *cad_prod_estoque;
 extern Fl_Button *edt_prod_estoque;
 extern Fl_Button *exc_prod_estoque;
