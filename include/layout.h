@@ -22,11 +22,17 @@ extern Fl_Button *btn_menu_estoque;
 extern Fl_Group *menu_venda;
 extern Fl_Button *btn_nova_venda;
 extern Fl_Button *btn_canc_venda;
-extern Fl_Button *btn_visu_vendas;
+extern Fl_Button *btn_visu_venda;
 
 extern Fl_Group *menu_nova_venda;
 extern Fl_Return_Button *btn_confir_venda;
 extern Fl_Input *in_produto_venda;
+
+extern Fl_Group *menu_canc_venda;
+extern Fl_Input_Choice *buscar_prod;
+extern Fl_Return_Button *btn_confir_canc;
+
+extern Fl_Group *menu_ver_venda;
 
 //extern  *busca_lista_venda;
 

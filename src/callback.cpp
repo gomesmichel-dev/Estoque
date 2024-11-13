@@ -20,63 +20,103 @@ void show_menu(Fl_Widget* widget, void* data) {
     menu_venda->hide();
     menu_estoque->hide();
     menu_cad_prod->hide(); 
+    
 }
 
 void show_venda(Fl_Widget* widget, void* data) {
-    std::cout << "abriu o menu" << std::endl;
+    std::cout << "abriu o menu de venda" << std::endl;
+    menu->hide();
     menu_venda->show();
     menu_nova_venda->hide();
-    menu_estoque->hide();
-    menu->hide();
-    menu_cad_prod->hide();
-    menu_cad_fornecedor->hide(); 
+    menu_canc_venda->hide();
+    menu_ver_venda->hide();
     menu_estoque->hide();
     menu_cad_prod->hide();
+    menu_cad_marca->hide();
+    menu_cad_fornecedor->hide();
 }
 void show_menu_venda(Fl_Widget* widget, void* data) {
-    std::cout << "abriu o menu" << std::endl;
-    menu_nova_venda->show();
-    menu_venda->hide();
-    menu_estoque->hide();
+    std::cout << "abriu o menu para vender" << std::endl;
     menu->hide();
-    menu_cad_prod->hide();
-    menu_cad_fornecedor->hide(); 
+    menu_venda->hide();
+    menu_nova_venda->show();
+    menu_canc_venda->hide();
+    menu_ver_venda->hide();
     menu_estoque->hide();
     menu_cad_prod->hide();
+    menu_cad_marca->hide();
+    menu_cad_fornecedor->hide();
 }
-void show_estoque(Fl_Widget* widget, void* data) {
-    std::cout << "abriu o menu" << std::endl;
-    menu_estoque->show();
+void show_menu__canc_venda(Fl_Widget* widget, void* data) {
+    std::cout << "abriu o menu para cancelar" << std::endl;
+    menu->hide();
     menu_venda->hide();
     menu_nova_venda->hide();
-    menu->hide();
-    menu_cad_marca->hide(); 
-    menu_cad_fornecedor->hide(); 
+    menu_canc_venda->show();
+    menu_ver_venda->hide();
+    menu_estoque->hide();
     menu_cad_prod->hide();
+    menu_cad_marca->hide();
+    menu_cad_fornecedor->hide();
+}
+void show_menu_ver_venda(Fl_Widget* widget, void* data) {
+    std::cout << "abriu o menu para Ver vendas" << std::endl;
+    menu->hide();
+    menu_venda->hide();
+    menu_nova_venda->hide();
+    menu_canc_venda->hide();
+    menu_ver_venda->show();
+    menu_estoque->hide();
+    menu_cad_prod->hide();
+    menu_cad_marca->hide();
+    menu_cad_fornecedor->hide();
+}
+void show_estoque(Fl_Widget* widget, void* data) {
+    menu->hide();
+    menu_venda->hide();
+    menu_nova_venda->hide();
+    menu_canc_venda->hide();
+    menu_ver_venda->hide();
+    menu_estoque->show();
+    menu_cad_prod->hide();
+    menu_cad_marca->hide();
+    menu_cad_fornecedor->hide();
 }
 
 void show_cad_prod(Fl_Widget* widget, void* data) {
-    menu_cad_prod->show(); 
-    menu_estoque->hide();
     menu->hide();
     menu_venda->hide();
+    menu_nova_venda->hide();
+    menu_canc_venda->hide();
+    menu_ver_venda->hide();
+    menu_estoque->hide();
+    menu_cad_prod->show();
+    menu_cad_marca->hide();
+    menu_cad_fornecedor->hide();
 }
 
 void show_cad_marca(Fl_Widget* widget, void* data) {
-    menu_cad_marca->show();
-    menu_cad_prod->hide();
-    menu_estoque->hide();
-    menu->hide();
+   menu->hide();
     menu_venda->hide();
+    menu_nova_venda->hide();
+    menu_canc_venda->hide();
+    menu_ver_venda->hide();
+    menu_estoque->hide();
+    menu_cad_prod->hide();
+    menu_cad_marca->show();
+    menu_cad_fornecedor->hide();
 } 
 
 void show_cad_fornecedor(Fl_Widget* widget, void* data) {
-    menu_cad_fornecedor->show(); 
-    menu_estoque->hide();
-    menu_cad_prod->hide();
-    menu_estoque->hide();
     menu->hide();
     menu_venda->hide();
+    menu_nova_venda->hide();
+    menu_canc_venda->hide();
+    menu_ver_venda->hide();
+    menu_estoque->hide();
+    menu_cad_prod->hide();
+    menu_cad_marca->hide();
+    menu_cad_fornecedor->show();
 }
 
 void escolha_cadastro(Fl_Widget* widget, void* data) {
