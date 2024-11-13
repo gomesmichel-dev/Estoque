@@ -20,43 +20,107 @@ void show_menu(Fl_Widget* widget, void* data) {
     menu_venda->hide();
     menu_estoque->hide();
     menu_cad_prod->hide(); 
+    
 }
 
 void show_venda(Fl_Widget* widget, void* data) {
+    std::cout << "abriu o menu de venda" << std::endl;
+    menu->hide();
     menu_venda->show();
+    menu_nova_venda->hide();
+    menu_canc_venda->hide();
+    menu_ver_venda->hide();
     menu_estoque->hide();
-    menu->hide();
-    menu_cad_prod->hide(); 
+    menu_cad_prod->hide();
+    menu_cad_marca->hide();
+    menu_cad_fornecedor->hide();
 }
-
-void show_estoque(Fl_Widget* widget, void* data) {
-    menu_estoque->show();
-    menu_venda->hide();
+void show_menu_venda(Fl_Widget* widget, void* data) {
+    std::cout << "abriu o menu para vender" << std::endl;
     menu->hide();
-    menu_cad_prod->hide(); 
+    menu_venda->hide();
+    menu_nova_venda->show();
+    menu_canc_venda->hide();
+    menu_ver_venda->hide();
+    menu_estoque->hide();
+    menu_cad_prod->hide();
+    menu_cad_marca->hide();
+    menu_cad_fornecedor->hide();
+}
+void show_menu__canc_venda(Fl_Widget* widget, void* data) {
+    std::cout << "abriu o menu para cancelar" << std::endl;
+    menu->hide();
+    menu_venda->hide();
+    menu_nova_venda->hide();
+    menu_canc_venda->show();
+    menu_ver_venda->hide();
+    menu_estoque->hide();
+    menu_cad_prod->hide();
+    menu_cad_marca->hide();
+    menu_cad_fornecedor->hide();
+}
+void show_menu_ver_venda(Fl_Widget* widget, void* data) {
+    std::cout << "abriu o menu para Ver vendas" << std::endl;
+    menu->hide();
+    menu_venda->hide();
+    menu_nova_venda->hide();
+    menu_canc_venda->hide();
+    menu_ver_venda->show();
+    menu_estoque->hide();
+    menu_cad_prod->hide();
+    menu_cad_marca->hide();
+    menu_cad_fornecedor->hide();
+}
+void show_estoque(Fl_Widget* widget, void* data) {
+    menu->hide();
+    menu_venda->hide();
+    menu_nova_venda->hide();
+    menu_canc_venda->hide();
+    menu_ver_venda->hide();
+    menu_estoque->show();
+    menu_cad_prod->hide();
+    menu_cad_marca->hide();
+    menu_cad_fornecedor->hide();
 }
 
 void show_cad_prod(Fl_Widget* widget, void* data) {
-    menu_cad_prod->show(); 
-    menu_estoque->hide();
     menu->hide();
     menu_venda->hide();
+    menu_nova_venda->hide();
+    menu_canc_venda->hide();
+    menu_ver_venda->hide();
+    menu_estoque->hide();
+    menu_cad_prod->show();
+    menu_cad_marca->hide();
+    menu_cad_fornecedor->hide();
 }
 
-void cadastroProduto(){
-    std::cout <<"cadastro produto" << std::endl;
-}
+void show_cad_marca(Fl_Widget* widget, void* data) {
+   menu->hide();
+    menu_venda->hide();
+    menu_nova_venda->hide();
+    menu_canc_venda->hide();
+    menu_ver_venda->hide();
+    menu_estoque->hide();
+    menu_cad_prod->hide();
+    menu_cad_marca->show();
+    menu_cad_fornecedor->hide();
+} 
 
-void cadastroMarca(){
-    std::cout <<"cadastro marca" << std::endl;
+void show_cad_fornecedor(Fl_Widget* widget, void* data) {
+    menu->hide();
+    menu_venda->hide();
+    menu_nova_venda->hide();
+    menu_canc_venda->hide();
+    menu_ver_venda->hide();
+    menu_estoque->hide();
+    menu_cad_prod->hide();
+    menu_cad_marca->hide();
+    menu_cad_fornecedor->show();
 }
-
-void cadastroFornecedor(){
-        std::cout <<"cadastro fornecedor" << std::endl;
-}
-
 
 void escolha_cadastro(Fl_Widget* widget, void* data) {
+
     if (data == nullptr) {
         std::cerr << "Erro: ponteiro 'data' é nulo!" << std::endl;
         return;
@@ -68,13 +132,13 @@ void escolha_cadastro(Fl_Widget* widget, void* data) {
     
     switch (index){
     case 0:
-        cadastroProduto();
+        show_cad_prod(widget, data);
         break;
     case 1:
-        cadastroMarca();
+        show_cad_marca(widget, data);
         break;
     case 2:
-        cadastroFornecedor();
+        show_cad_fornecedor(widget, data);
         break;
     
     default:

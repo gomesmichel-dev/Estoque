@@ -1,7 +1,7 @@
 # Variáveis de compilação
 CXX = g++
-CXXFLAGS = -std=c++11 -Wall -g -O0 -I/usr/include
-
+CXXFLAGS += $(shell fltk-config --cxxflags)
+LIBS += $(shell fltk-config --ldflags) -lfltk
 LDFLAGS = -lfltk -lsqlite3
 
 # Diretórios
