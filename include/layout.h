@@ -40,6 +40,9 @@ extern Fl_Group *menu_venda;
 extern Fl_Input_Choice *buscar_nome_prod;
 extern Fl_Input_Choice *buscar_nome_prod;
 extern Fl_Input_Choice *buscar_nome_prod;
+extern Fl_Input_Choice *buscar_nome_cli;
+extern Fl_Input *qtd_venda;
+
 extern Fl_Output *prc_prod;
 extern Fl_Input *desconto_venda;
 extern Fl_Button *btn_nova_venda;
@@ -47,7 +50,7 @@ extern Fl_Button *btn_canc_venda;
 extern Fl_Button *btn_visu_venda;
 
 extern Fl_Group *menu_nova_venda;
-extern Fl_Return_Button *btn_confir_venda;
+extern Fl_Button *btn_confir_venda;
 extern Fl_Input *in_produto_venda;
 
 extern Fl_Group *menu_canc_venda;

@@ -17,6 +17,8 @@ Fl_Group *menu_venda=(Fl_Group *)0;
 Fl_Input_Choice *buscar_nome_prod=(Fl_Input_Choice *)0;
 Fl_Input_Choice *buscar_marca_prod=(Fl_Input_Choice *)0;
 Fl_Input_Choice *buscar_linha_prod=(Fl_Input_Choice *)0;
+Fl_Input_Choice *buscar_nome_cli=(Fl_Input_Choice *)0;
+Fl_Input  *qnt_venda=(Fl_Input *)0;
 Fl_Input  *desconto_venda=(Fl_Input *)0;
 Fl_Button *btn_nova_venda=(Fl_Button *)0;
 Fl_Button *btn_canc_venda=(Fl_Button *)0;
@@ -24,7 +26,7 @@ Fl_Button *btn_visu_venda=(Fl_Button *)0;
 
 Fl_Group *menu_nova_venda=(Fl_Group *)0;
 Fl_Input_Choice *buscar_prod=(Fl_Input_Choice *)0;
-Fl_Return_Button *btn_confir_venda=(Fl_Return_Button *)0;
+Fl_Button *btn_confir_venda=(Fl_Button *)0;
 Fl_Output *prc_prod=(Fl_Output *)0;
 
 Fl_Group *menu_canc_venda=(Fl_Group *)0;
@@ -66,12 +68,12 @@ Fl_Return_Button *btn_voltar=(Fl_Return_Button *)0;
   //inicio do codigo
 Fl_Double_Window* main_window() {
   
-  { tela_principal = new Fl_Double_Window(1364, 739, "GOMES CORP");
+  { tela_principal = new Fl_Double_Window(0, 0, "GOMES CORP");
     tela_principal->box(FL_THIN_UP_BOX);
     
     {   menu = new Fl_Group(25, 25, 1330, 695);
-      menu->show();
-      { btn_menu_venda = new Fl_Button(100, 150, 300, 35, "aloha");
+      menu->hide();
+      { btn_menu_venda = new Fl_Button(100, 150, 300, 35, "Vender");
         //btn_menu_venda->callback((Fl_Callback*)show_venda);
       } 
       { btn_menu_cadastro = new Fl_Button(100, 250, 300, 35, "Cadastros");
@@ -85,25 +87,25 @@ Fl_Double_Window* main_window() {
       } 
       menu->end();
     } // Fl_Group* tela_menu
-    
     { menu_venda = new Fl_Group(25, 25, 1330, 695);
-      menu_venda->hide();
-      {buscar_nome_prod = placeholder_input_choice(400, 150, 300, 35, "Buscar nome Produto");
+      menu_venda->show();
+      {buscar_nome_prod = placeholder_input_choice(150, 150, 300, 30, "Buscar nome Produto");
       }
-      { buscar_marca_prod = placeholder_input_choice(700, 150, 300, 35, "Buscar marca Produto");
+      { buscar_marca_prod = placeholder_input_choice(500, 150, 200, 30, "Buscar marca Produto");
       }
-      { buscar_linha_prod = placeholder_input_choice(1000, 150, 300, 35, "Buscar linha Produto");
+      { buscar_linha_prod = placeholder_input_choice(750, 150, 200, 30, "Buscar linha Produto");
       }
-      { prc_prod = new Fl_Output(400, 200, 100, 30, "Preço:");
+      { buscar_nome_cli = placeholder_input_choice(150, 200, 200, 30, "Buscar cliente");
       }
-      { desconto_venda = new Fl_Input(700, 200, 100, 30, "Desconto");
+      { desconto_venda = new Fl_Input(750, 200, 30, 30, "Desconto");
       }
-      { btn_nova_venda = new Fl_Button(1005, 130, 300, 35, "Nova venda");
+      { prc_prod = new Fl_Output(500, 200, 100, 30, "Preço:");
+      }
+      { qnt_venda = placeholder_input(390, 200, 50, 30, "Qtd");
+      }
+      { btn_confir_venda = new Fl_Button(1005, 150, 300, 30, "Confirmar");
         //btn_nova_venda->callback((Fl_Callback*)show_menu_venda); 
-      } 
-      { btn_visu_venda = new Fl_Button(1005, 330, 300, 35, "Ver vendas venda");
-        //btn_visu_venda->callback((Fl_Callback*)show_menu_ver_venda); 
-      } 
+      }  
       { btn_voltar = new Fl_Return_Button(1005, 530, 110, 25, "Voltar");
         btn_voltar->callback((Fl_Callback*)show_menu);
       } 
@@ -114,8 +116,8 @@ Fl_Double_Window* main_window() {
         menu_nova_venda->hide();
         { buscar_prod = new Fl_Input_Choice(400, 130, 300, 35, "Buscar Produto");
         }    
-        { btn_confir_venda = new Fl_Return_Button(1005, 130, 300, 35, "Confirmar Venda");
-        } 
+        //{ btn_confir_venda = new Fl_Return_Button(1005, 130, 300, 35, "Confirmar Venda");
+        //} 
         { btn_voltar = new Fl_Return_Button(1005, 230, 300, 35, "Voltar");
           btn_voltar->callback((Fl_Callback*)show_venda);
         }
@@ -221,7 +223,7 @@ Fl_Double_Window* main_window() {
       menu_cad_fornecedor->end();
       } // Fl_Group* tela_cad_marca
 
-    tela_principal->size_range(1364, 739, 1364, 739);
+    tela_principal->fullscreen();
     tela_principal->end();
   } // Fl_Double_Window* tela_principal
   return tela_principal;
