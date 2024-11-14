@@ -12,20 +12,45 @@
 #include <FL/Fl_Input.H>
 #include "../include/callback.h"
 #include <FL/Fl_Choice.H>
+#include <FL/Fl_Output.H>
+
+class Layout : public Fl_Window {
+public:
+    Layout(int w, int h, const char* title);
+    ~Layout();
+    
+private:
+    Fl_Input* input1;
+    Fl_Choice* choice1;
+    Fl_Input_Choice* input_choice1;
+    
+    void setup_widgets();  // Função para configurar widgets
+};
 
 extern Fl_Double_Window *tela_principal;
 
 extern Fl_Group *menu;
 extern Fl_Button *btn_menu_venda;
+extern Fl_Button *btn_menu_cadastro;
 extern Fl_Button *btn_menu_estoque;
+extern Fl_Button *btn_menu_financeiro;
+
 
 extern Fl_Group *menu_venda;
+extern Fl_Input_Choice *buscar_nome_prod;
+extern Fl_Input_Choice *buscar_nome_prod;
+extern Fl_Input_Choice *buscar_nome_prod;
+extern Fl_Input_Choice *buscar_nome_cli;
+extern Fl_Input *qtd_venda;
+
+extern Fl_Output *prc_prod;
+extern Fl_Input *desconto_venda;
 extern Fl_Button *btn_nova_venda;
 extern Fl_Button *btn_canc_venda;
 extern Fl_Button *btn_visu_venda;
 
 extern Fl_Group *menu_nova_venda;
-extern Fl_Return_Button *btn_confir_venda;
+extern Fl_Button *btn_confir_venda;
 extern Fl_Input *in_produto_venda;
 
 extern Fl_Group *menu_canc_venda;
@@ -38,7 +63,7 @@ extern Fl_Group *menu_ver_venda;
 
 
 extern Fl_Group *menu_estoque;
-extern Fl_Button *cad_prod_estoque;
+extern Fl_Choice *cad_prod_estoque;
 extern Fl_Button *edt_prod_estoque;
 extern Fl_Button *exc_prod_estoque;
 

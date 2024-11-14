@@ -1,0 +1,3 @@
+{ btn_canc_venda = new Fl_Button(1005, 230, 300, 35, "Cancelar venda");
+        btn_canc_venda->callback((Fl_Callback*)show_menu__canc_venda); 
+      } 
