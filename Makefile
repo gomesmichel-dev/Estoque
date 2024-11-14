@@ -15,7 +15,7 @@ OBJ = $(SRC:$(SRC_DIR)/%=$(BIN_DIR)/%.o)
 # Tarefa principal
 all: create_dirs sistema_estoque_vendas
 
-# Criação dos diretórios bin
+# Criação do diretório bin se não existir
 create_dirs:
 	mkdir -p $(BIN_DIR)
 
