@@ -1,25 +1,23 @@
 #include "../include/config.h"
 #include "../include/callback.h"
 #include "../include/layout.h"
+#include <initializer_list>
 #include <FL/Fl_Group.H>
+#include <vector>
+#include <algorithm>
+#include <unordered_set>
 
-std::vector<Fl_Group*> groups; 
-
-    void preencher_grupos() {
+std::vector<Fl_Group*> groups;
+void preencher_grupos() {
     groups.push_back(menu);
     groups.push_back(menu_venda);
     groups.push_back(menu_cadastro);
-    groups.push_back(menu_estoque);
+    groups.push_back(menu_cad_cliente);
+    groups.push_back(menu_cad_fornecedor);
+    groups.push_back(menu_cadastro);
+    //groups.push_back(menu_estoque);
 }
-void exibir(Fl_Group* visible_group) {
-    for (auto* group : groups) {
-        if (group == visible_group) {
-            group->show(); 
-        } else {
-            group->hide();
-        }
-    }
-}
+
 
 Fl_Input* placeholder_input(int x, int y, int w, int h, const char* placeholder) {
     Fl_Input* input = new Fl_Input(x, y, w, h);

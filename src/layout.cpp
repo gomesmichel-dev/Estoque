@@ -5,6 +5,8 @@
 #include "../include/database.h"
 #include "../include/config.h"
 #include <vector>
+#include <algorithm>
+
 Fl_Double_Window *tela_principal=(Fl_Double_Window *)0;
 
 Fl_Group *menu=(Fl_Group *)0;
@@ -20,19 +22,19 @@ Fl_Input_Choice *buscar_linha_prod=(Fl_Input_Choice *)0;
 Fl_Input_Choice *buscar_nome_cli=(Fl_Input_Choice *)0;
 Fl_Input  *qnt_venda=(Fl_Input *)0;
 Fl_Input  *desconto_venda=(Fl_Input *)0;
-Fl_Button *btn_nova_venda=(Fl_Button *)0;
-Fl_Button *btn_canc_venda=(Fl_Button *)0;
-Fl_Button *btn_visu_venda=(Fl_Button *)0;
-
-Fl_Group *menu_nova_venda=(Fl_Group *)0;
-Fl_Input_Choice *buscar_prod=(Fl_Input_Choice *)0;
-Fl_Button *btn_confir_venda=(Fl_Button *)0;
 Fl_Output *prc_prod=(Fl_Output *)0;
+Fl_Button *btn_confir_venda=(Fl_Button *)0;
+//Fl_Button *btn_canc_venda=(Fl_Button *)0;
+//Fl_Button *btn_visu_venda=(Fl_Button *)0;
 
-Fl_Group *menu_canc_venda=(Fl_Group *)0;
-Fl_Return_Button *btn_confir_canc=(Fl_Return_Button *)0;
+//Fl_Input_Choice *buscar_prod=(Fl_Input_Choice *)0;
+//Fl_Button *btn_confir_venda=(Fl_Button *)0;
+//Fl_Output *prc_prod=(Fl_Output *)0;
 
-Fl_Group *menu_ver_venda=(Fl_Group *)0;
+//Fl_Group *menu_canc_venda=(Fl_Group *)0;
+//Fl_Return_Button *btn_confir_canc=(Fl_Return_Button *)0;
+//Fl_Group *menu_ver_venda=(Fl_Group *)0;
+
 
 
 Fl_Group *menu_estoque=(Fl_Group *)0;
@@ -42,25 +44,42 @@ Fl_Group *menu_seleção=(Fl_Group *)0;
   Fl_Choice *seletor_cadastro=(Fl_Choice *)0;
 
 
-Fl_Group *menu_cadastro=(Fl_Group *)0; // Initialize appropriately
-Fl_Input *in_nome_prod=(Fl_Input *)0;
-Fl_Input_Choice *in_marca_prod=(Fl_Input_Choice *)0;
-Fl_Input_Choice *in_linha_prod=(Fl_Input_Choice *)0;
-Fl_Input_Choice *in_categoria_prod=(Fl_Input_Choice *)0;
-Fl_Input_Choice *in_tamanho_prod=(Fl_Input_Choice *)0;
-Fl_Input_Choice *in_fornecedor_prod=(Fl_Input_Choice *)0;
-Fl_Input *in_obs_prod=(Fl_Input *)0;
-Fl_Input *in_prc_compra_prod=(Fl_Input *)0;
-Fl_Input *in_prc_venda_prod=(Fl_Input *)0;
-Fl_Button *btn_confir_cadastro=(Fl_Button *)0;
+Fl_Group *menu_cadastro=(Fl_Group *)0;
+  Fl_Button *btn_confir_cadastro=(Fl_Button *)0;
+  Fl_Button *btn_editar_cadastro=(Fl_Button *)0;
+  Fl_Button *btn_excluir_cadastro=(Fl_Button *)0;
+  Fl_Button *btn_cad_cliente=(Fl_Button *)0;
+  Fl_Button *btn_cad_fornecedor=(Fl_Button *)0;
+  Fl_Button *btn_cad_produto=(Fl_Button *)0;
+  
+  Fl_Group *menu_cad_cliente=(Fl_Group *)0;
+    Fl_Input *in_nome_cliente=(Fl_Input *)0;
+    Fl_Input *in_telefone_cliente=(Fl_Input *)0;
+    
+  Fl_Group *menu_cad_marca=(Fl_Group *)0;
+    Fl_Input *in_nome_marca=(Fl_Input *)0; 
+    Fl_Choice *in_fornecedor_marca=(Fl_Choice *)0;
 
-Fl_Group *menu_cad_marca=(Fl_Group *)0;
-Fl_Input *in_nome_marca=(Fl_Input *)0; 
-Fl_Input_Choice *in_fornecedor_marca=(Fl_Input_Choice *)0;
+  Fl_Group *menu_cad_fornecedor=(Fl_Group *)0;
+    Fl_Input *in_nome_fornecedor=(Fl_Input *)0; 
+    Fl_Input *in_telefone_fornecedor=(Fl_Input *)0;
+    Fl_Input *in_cnpj_fornecedor=(Fl_Input *)0;
 
-Fl_Group *menu_cad_fornecedor=(Fl_Group *)0;
-Fl_Input *in_nome_fornecedor=(Fl_Input *)0; 
-Fl_Input *in_telefone_fornecedor=(Fl_Input *)0;
+  Fl_Group  *menu_cad_prod =(Fl_Group *)0;
+    Fl_Input *in_nome_prod=(Fl_Input *)0;
+    Fl_Choice *in_marca_prod=(Fl_Choice *)0;
+    Fl_Input_Choice *in_linha_prod=(Fl_Input_Choice *)0;
+    Fl_Input_Choice *in_categoria_prod=(Fl_Input_Choice *)0;
+    Fl_Input_Choice *in_tamanho_prod=(Fl_Input_Choice *)0;
+    Fl_Choice *in_fornecedor_prod=(Fl_Choice *)0;
+    Fl_Input *in_obs_prod=(Fl_Input *)0;
+    Fl_Input *in_prc_compra_prod=(Fl_Input *)0;
+    Fl_Input *in_prc_venda_prod=(Fl_Input *)0;
+    
+  
+  
+
+
 
   //botão retornar menu
 Fl_Return_Button *btn_voltar=(Fl_Return_Button *)0;
@@ -95,13 +114,11 @@ Fl_Double_Window* main_window() {
       groups.push_back(menu_venda);      
       menu_venda->hide();
       
-      {buscar_nome_prod = placeholder_input_choice(150, 150, 300, 30, "Buscar nome Produto");
+      {buscar_nome_prod = placeholder_input_choice(150, 150, 300, 30, "Nome");
       }
-      { buscar_marca_prod = placeholder_input_choice(500, 150, 200, 30, "Buscar marca Produto");
+      { buscar_marca_prod = placeholder_input_choice(500, 150, 200, 30, "Marca");
       }
-      { buscar_linha_prod = placeholder_input_choice(750, 150, 200, 30, "Buscar linha Produto");
-      }
-      { buscar_nome_cli = placeholder_input_choice(150, 200, 200, 30, "Buscar cliente");
+      { buscar_nome_cli = placeholder_input_choice(150, 200, 200, 30, "cliente");
       }
       { desconto_venda = new Fl_Input(750, 200, 30, 30, "Desconto");
       }
@@ -121,30 +138,88 @@ Fl_Double_Window* main_window() {
     { menu_cadastro = new Fl_Group(25, 25, 1330, 695);
       groups.push_back(menu_cadastro);
       menu_cadastro->hide();
-     
-      { in_nome_prod = new Fl_Input(505, 50, 300, 35, "Nome do Produto");
+            
+      { btn_confir_cadastro = new Fl_Button(1005, 150, 300, 35, "Cadastrar");
+      }       
+      { btn_editar_cadastro = new Fl_Button(1005, 200, 300, 35, "Editar");
+      }       
+      { btn_excluir_cadastro = new Fl_Button(1005, 250, 300, 35, "Excluir");
+      }
+      { btn_cad_cliente = new Fl_Button(50, 25, 200, 30, "Cliente");
+        btn_cad_cliente->callback((Fl_Callback*)show_cad_cliente);
+      }
+      { btn_cad_fornecedor = new Fl_Button(300, 25, 200, 30, "Fornecedor");
+        btn_cad_fornecedor->callback((Fl_Callback*)show_cad_fornecedor);
+
       } 
-      { in_marca_prod = new Fl_Input_Choice(505, 100, 300, 35, "Marca");
-      } 
-      { in_categoria_prod = new Fl_Input_Choice(505, 150, 300, 35, "Categoria");
-      } 
-      { in_tamanho_prod= new Fl_Input_Choice(505, 200, 300, 35, "tamanho");
-      } 
-      { in_fornecedor_prod = new Fl_Input_Choice(505, 250, 300, 35, "fornecedor");
-      } 
-      { in_obs_prod = new Fl_Input(505, 300, 300, 35, "obs");
-      } 
-      {  in_prc_compra_prod = new Fl_Input(505, 350, 300, 35, "preço de compra");
-      } 
-      { in_prc_venda_prod = new Fl_Input(505, 400, 300, 35, "preço de venda");
-      } 
-      { btn_confir_cadastro = new Fl_Return_Button(1005, 130, 300, 35, "Cadastrar");
-        //btn_confir_cadastro->callback((Fl_Callback*)show_cad_prod);
-      } 
-      { btn_voltar = new Fl_Return_Button(1005, 230, 300, 35, "Voltar");
+      { btn_cad_produto = new Fl_Button(550, 25, 200, 30, "Produto");
+        btn_cad_produto->callback((Fl_Callback*)show_cad_produto);      
+      }
+      { btn_voltar = new Fl_Return_Button(1005, 300, 110, 25, "Voltar");
         btn_voltar->callback((Fl_Callback*)show_menu);
       } 
+      
+      menu_cad_cliente = new Fl_Group(50, 100, 800, 600);{
+       groups.push_back(menu_cad_cliente);
+       menu_cad_cliente->hide();
+
+        { in_nome_cliente = placeholder_input(150, 150, 300, 30, "Nome");
+        } 
+        { in_telefone_cliente = placeholder_input(450, 150, 100, 30, "Telefone");
+        } 
+        menu_cad_cliente->end();
+      }
+       
+      menu_cad_marca = new Fl_Group(50, 100, 800, 600);{
+       groups.push_back(menu_cad_marca);
+       menu_cad_cliente->hide();
+
+        { in_nome_marca = placeholder_input(505, 100, 300, 35, "Nome");
+        } 
+        { in_fornecedor_marca = placeholder_choice(505, 150, 300, 35, "Fornecedor");
+        } 
+        menu_cad_cliente->end();
+      }
+      
+      menu_cad_fornecedor = new Fl_Group(50, 100, 800, 600);{
+       groups.push_back(menu_cad_fornecedor);
+       menu_cad_fornecedor->hide();
+
+        { in_nome_fornecedor = placeholder_input(505, 100, 300, 35, "Nome");
+        } 
+        { in_telefone_fornecedor = placeholder_input(505, 150, 300, 35, "Telefone");
+        }
+        { in_cnpj_fornecedor = placeholder_input(505, 150, 300, 35, "cnpj");
+        }
+        menu_cad_fornecedor->end();
+      }
+
+      { menu_cad_prod = new Fl_Group(50, 100, 800, 600);
+        groups.push_back(menu_cad_prod);
+        menu_cad_prod->hide();
+
+        { in_nome_prod =  placeholder_input(505, 50, 300, 35, "Nome do Produto");
+        } 
+        { in_marca_prod =  placeholder_choice (505, 100, 300, 35, "Marca");
+        } 
+        { in_categoria_prod =  placeholder_input_choice(505, 150, 300, 35, "Categoria");
+        } 
+        { in_tamanho_prod=  placeholder_input_choice(505, 200, 300, 35, "tamanho");
+        } 
+        { in_fornecedor_prod =  placeholder_choice(505, 250, 300, 35, "fornecedor");
+        } 
+        { in_obs_prod =  placeholder_input(505, 300, 300, 35, "obs");
+        } 
+        {  in_prc_compra_prod = placeholder_input(505, 350, 300, 35, "preço de compra");
+        } 
+        { in_prc_venda_prod = placeholder_input(505, 400, 300, 35, "preço de venda");
+        } 
+
+          menu_cad_prod->end();
+      }
+
       menu_cadastro->end();
+
     }
 
     tela_principal->fullscreen();

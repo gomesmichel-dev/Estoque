@@ -38,6 +38,16 @@ void show_cadastro(Fl_Widget* widget, void* data) {
     std::cout <<"abriu o cadastro" << std::endl;
     exibir(menu_cadastro);
 }
+void show_cad_cliente(Fl_Widget* widget, void* data){
+    exibir(menu_cadastro, menu_cad_cliente);
+}
+void show_cad_fornecedor(Fl_Widget* widget, void* data){
+    exibir(menu_cadastro, menu_cad_fornecedor);
+}
+void show_cad_produto(Fl_Widget* widget, void* data){
+    exibir(menu_cadastro, menu_cad_prod);
+}
+
 
 //void show_menu_venda(Fl_Widget* widget, void* data) {
 //    std::cout << "abriu o menu para vender" << std::endl;
