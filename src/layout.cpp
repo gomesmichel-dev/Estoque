@@ -35,15 +35,6 @@ Fl_Button *btn_confir_venda=(Fl_Button *)0;
 //Fl_Return_Button *btn_confir_canc=(Fl_Return_Button *)0;
 //Fl_Group *menu_ver_venda=(Fl_Group *)0;
 
-
-
-Fl_Group *menu_estoque=(Fl_Group *)0;
-  Fl_Choice *cad_prod_estoque=(Fl_Choice *)0;
-  
-Fl_Group *menu_seleção=(Fl_Group *)0;
-  Fl_Choice *seletor_cadastro=(Fl_Choice *)0;
-
-
 Fl_Group *menu_cadastro=(Fl_Group *)0;
   Fl_Button *btn_confir_cadastro=(Fl_Button *)0;
   Fl_Button *btn_editar_cadastro=(Fl_Button *)0;
@@ -60,13 +51,13 @@ Fl_Group *menu_cadastro=(Fl_Group *)0;
     Fl_Input *in_nome_marca=(Fl_Input *)0; 
     Fl_Choice *in_fornecedor_marca=(Fl_Choice *)0;
 
-  Fl_Group *menu_cad_fornecedor=(Fl_Group *)0;
-    Fl_Input *in_nome_fornecedor=(Fl_Input *)0; 
-    Fl_Input *in_telefone_fornecedor=(Fl_Input *)0;
-    Fl_Input *in_cnpj_fornecedor=(Fl_Input *)0;
+  Fl_Group *menu_cad_fornecedor = (Fl_Group *)0;
+    Fl_Input *in_nome_fornecedor = (Fl_Input *)0; 
+    Fl_Input *in_telefone_fornecedor = (Fl_Input *)0;
+    Fl_Input *in_cnpj_fornecedor = (Fl_Input *)0;
 
   Fl_Group  *menu_cad_prod =(Fl_Group *)0;
-    Fl_Input *in_nome_prod=(Fl_Input *)0;
+    Fl_Input *in_nome_prod =(Fl_Input *)0;
     Fl_Choice *in_marca_prod=(Fl_Choice *)0;
     Fl_Input_Choice *in_linha_prod=(Fl_Input_Choice *)0;
     Fl_Input_Choice *in_categoria_prod=(Fl_Input_Choice *)0;
@@ -76,8 +67,11 @@ Fl_Group *menu_cadastro=(Fl_Group *)0;
     Fl_Input *in_prc_compra_prod=(Fl_Input *)0;
     Fl_Input *in_prc_venda_prod=(Fl_Input *)0;
     
-  
-  
+  Fl_Group *menu_estoque = (Fl_Group *)0;
+    Fl_Check_Button *btn_entrada=(Fl_Check_Button *)0; 
+    Fl_Check_Button *btn_saida=(Fl_Check_Button *)0;
+      Fl_Group *menu_entrada = (Fl_Group *)0;
+      Fl_Group *menu_saida = (Fl_Group *)0;
 
 
 
@@ -103,7 +97,7 @@ Fl_Double_Window* main_window() {
         btn_menu_cadastro->callback((Fl_Callback*)show_cadastro);
       } 
       { btn_menu_estoque = new Fl_Button(100, 350, 300, 35, "Estoque");
-        //btn_menu_estoque->callback((Fl_Callback*)show_menu);
+        btn_menu_estoque->callback((Fl_Callback*)show_estoque);
       }
       { btn_menu_financeiro = new Fl_Button(100, 450, 300, 35, "Financeiro");
         //btn_tela_estoque->callback((Fl_Callback*)show_estoque);
@@ -165,7 +159,7 @@ Fl_Double_Window* main_window() {
 
         { in_nome_cliente = placeholder_input(150, 150, 300, 30, "Nome");
         } 
-        { in_telefone_cliente = placeholder_input(450, 150, 100, 30, "Telefone");
+        { in_telefone_cliente = placeholder_input(500, 150, 100, 30, "Telefone");
         } 
         menu_cad_cliente->end();
       }
@@ -174,9 +168,9 @@ Fl_Double_Window* main_window() {
        groups.push_back(menu_cad_marca);
        menu_cad_cliente->hide();
 
-        { in_nome_marca = placeholder_input(505, 100, 300, 35, "Nome");
+        { in_nome_marca = placeholder_input(150, 150, 300, 35, "Nome");
         } 
-        { in_fornecedor_marca = placeholder_choice(505, 150, 300, 35, "Fornecedor");
+        { in_fornecedor_marca = placeholder_choice(450, 150, 300, 35, "Fornecedor");
         } 
         menu_cad_cliente->end();
       }
@@ -185,44 +179,62 @@ Fl_Double_Window* main_window() {
        groups.push_back(menu_cad_fornecedor);
        menu_cad_fornecedor->hide();
 
-        { in_nome_fornecedor = placeholder_input(505, 100, 300, 35, "Nome");
+        { in_nome_fornecedor = placeholder_input(150, 100, 300, 35, "Nome");
         } 
-        { in_telefone_fornecedor = placeholder_input(505, 150, 300, 35, "Telefone");
+        { in_telefone_fornecedor = placeholder_input(500, 100, 300, 35, "Telefone");
         }
-        { in_cnpj_fornecedor = placeholder_input(505, 150, 300, 35, "cnpj");
+        { in_cnpj_fornecedor = placeholder_input(150, 150, 300, 35, "cnpj");
         }
         menu_cad_fornecedor->end();
       }
 
-      { menu_cad_prod = new Fl_Group(50, 100, 800, 600);
+       menu_cad_prod = new Fl_Group(50, 100, 800, 600);{
         groups.push_back(menu_cad_prod);
         menu_cad_prod->hide();
 
-        { in_nome_prod =  placeholder_input(505, 100, 400, 35, "Nome do Produto");
+        { in_nome_prod =  placeholder_input(150, 100, 400, 35, "Nome do Produto");
         } 
-        { in_marca_prod =  placeholder_choice (505, 100, 300, 35, "Marca");
+        { in_marca_prod =  placeholder_choice (550, 100, 300, 35, "Marca");
         } 
-        { in_categoria_prod =  placeholder_input_choice(505, 150, 300, 35, "Categoria");
+        { in_categoria_prod =  placeholder_input_choice(150, 150, 300, 35, "Categoria");
         } 
-        { in_tamanho_prod=  placeholder_input_choice(505, 200, 300, 35, "tamanho");
+        { in_fornecedor_prod =  placeholder_choice(550, 150, 300, 35, "fornecedor");
         } 
-        { in_fornecedor_prod =  placeholder_choice(505, 250, 300, 35, "fornecedor");
+        { in_tamanho_prod = placeholder_input_choice(150, 200, 100, 35, "tamanho");
         } 
-        { in_obs_prod =  placeholder_input(505, 300, 300, 35, "obs");
+        {  in_prc_compra_prod = placeholder_input(300, 200, 100, 35, "prç compra");
         } 
-        {  in_prc_compra_prod = placeholder_input(505, 350, 300, 35, "preço de compra");
+        { in_prc_venda_prod = placeholder_input(450, 200, 100, 35, "prç venda");
         } 
-        { in_prc_venda_prod = placeholder_input(505, 400, 300, 35, "preço de venda");
+        { in_obs_prod =  placeholder_input(150, 250, 500, 35, "obs");
         } 
 
           menu_cad_prod->end();
       }
-
       menu_cadastro->end();
-
     }
+    {menu_estoque = new Fl_Group(25, 25, 1330, 695);
+      groups.push_back(menu_estoque);
+      menu_estoque->hide();
+      
+      { btn_entrada = new Fl_Check_Button(50, 50, 60, 50, "Entrada");
+        btn_entrada->callback(validate_check_buttons);
 
-    tela_principal->fullscreen();
+      }       
+      { btn_saida = new Fl_Check_Button(150, 50, 60, 50, "Saida");
+        btn_saida->callback(validate_check_buttons);
+      }       
+      { in_nome_prod =  placeholder_input(150, 100, 400, 35, "Nome do Produto");
+      } 
+      { in_marca_prod =  placeholder_choice (550, 100, 300, 35, "Marca");
+      } 
+      { in_categoria_prod =  placeholder_input_choice(150, 150, 300, 35, "Categoria");
+      } 
+      { in_fornecedor_prod =  placeholder_choice(550, 150, 300, 35, "fornecedor");
+      } 
+      { in_tamanho_prod = placeholder_input_choice(150, 200, 100, 35, "tamanho");
+      }
+    }
     tela_principal->end();
   } 
   return tela_principal;

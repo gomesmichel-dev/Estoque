@@ -12,8 +12,10 @@
 #include <FL/Fl_Input.H>
 #include <FL/Fl_Choice.H>
 #include <FL/Fl_Output.H>
+#include <FL/Fl_Check_Button.H>
 #include <vector>
 #include "../include/callback.h"
+#include "../include/config.h"
 #include <unordered_set>
 
 class Layout : public Fl_Window {
@@ -83,6 +85,11 @@ extern Fl_Group *menu_cadastro;
         extern Fl_Input *in_descricao_prod;
         extern Fl_Input *in_obs_prod;
 
+extern Fl_Group *menu_estoque;
+    extern Fl_Check_Button *btn_entrada;
+    extern Fl_Check_Button *btn_saida;
+
+
 //extern Fl_Group *menu_nova_venda;
 //extern Fl_Input *in_produto_venda;
 //
@@ -94,7 +101,6 @@ extern Fl_Group *menu_cadastro;
 //extern  *busca_lista_venda;
 
 //
-//extern Fl_Group *menu_estoque;
 //extern Fl_Choice *cad_prod_estoque;
 //
 //

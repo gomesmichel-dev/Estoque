@@ -47,15 +47,18 @@ void focus_callback(Fl_Widget* widget, void* data) {
     Fl_Input* input = (Fl_Input*)widget;
     const char* placeholder = (const char*)data;
 
+    std::cout << "Callback de foco acionado" << std::endl; // Linha de depuração
+
     if (strcmp(input->value(), placeholder) == 0) {
-        std::cout <<"apagado" << std::endl;
-        input->value("");  // Limpa o campo se o valor for igual ao placeholder
+        input->value("");  // Limpa o campo se corresponder ao placeholder
     }
 }
 
 void blur_callback(Fl_Widget* widget, void* data) {
     Fl_Input* input = (Fl_Input*)widget;
     const char* placeholder = (const char*)data;
+
+    std::cout << "Callback de desfoque acionado" << std::endl; // Linha de depuração
 
     if (strlen(input->value()) == 0) {
         input->value(placeholder);  // Restaura o placeholder se o campo estiver vazio
@@ -66,12 +69,14 @@ Fl_Input* placeholder_input(int x, int y, int w, int h, const char* placeholder)
     Fl_Input* input = new Fl_Input(x, y, w, h);
     input->value(placeholder);  // Define o texto inicial como o placeholder
 
-    // Callback para apagar o placeholder ao focar
+    input->when(FL_WHEN_ENTER_KEY | FL_WHEN_CHANGED); // Para capturar Enter e mudanças
+    // Define o input para chamar o callback de foco quando ganhar foco
     input->callback(focus_callback, (void*)placeholder);
-    input->when(FL_WHEN_CHANGED); // Garante que o callback seja chamado em foco e mudança
-
-    // Adiciona um evento de desfoco
+    
+    // Define o input para chamar o callback de desfoque quando perder foco
     input->callback(blur_callback, (void*)placeholder);
+
+    // Use apenas FL_WHEN_CHANGED para capturar mudanças no valor
 
     return input;
 }

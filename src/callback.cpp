@@ -32,8 +32,22 @@ void show_cad_fornecedor(Fl_Widget* widget, void* data){
 void show_cad_produto(Fl_Widget* widget, void* data){
     exibir(menu_cadastro, menu_cad_prod);
 }
+void show_estoque(Fl_Widget* widget, void* data) {
+    exibir(menu_estoque);
+}
 
 
+void validate_check_buttons(Fl_Widget *w, void *data) {
+    if (w == btn_entrada) {
+        if (btn_entrada->value()) {
+            btn_saida->value(0); 
+        }
+    } else if (w == btn_saida) {
+        if (btn_saida->value()) {
+            btn_entrada->value(0); 
+        }
+    }
+}
 //void show_menu_venda(Fl_Widget* widget, void* data) {
 //    std::cout << "abriu o menu para vender" << std::endl;
 //    menu->hide();
