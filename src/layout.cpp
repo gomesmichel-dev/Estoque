@@ -198,7 +198,7 @@ Fl_Double_Window* main_window() {
         groups.push_back(menu_cad_prod);
         menu_cad_prod->hide();
 
-        { in_nome_prod =  placeholder_input(505, 50, 300, 35, "Nome do Produto");
+        { in_nome_prod =  placeholder_input(505, 100, 400, 35, "Nome do Produto");
         } 
         { in_marca_prod =  placeholder_choice (505, 100, 300, 35, "Marca");
         } 

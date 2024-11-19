@@ -22,11 +22,12 @@ void exibir(Groups... visible_groups) {
         }
     }
 }
+void apagar_placeholder(Fl_Widget* widget, void* data);
+void restaurar_placeholder(Fl_Widget* widget, void* data);
 
-Fl_Input* placeholder_input(int x, int y, int w, int h, const char* placeholder);
-Fl_Choice* placeholder_choice(int x, int y, int w, int h, const char* placeholder);
-Fl_Input_Choice* placeholder_input_choice(int x, int y, int w, int h, const char* placeholder);
-
+extern Fl_Input* placeholder_input(int x, int y, int w, int h, const char* placeholder);
+extern Fl_Choice* placeholder_choice(int x, int y, int w, int h, const char* placeholder);
+extern Fl_Input_Choice* placeholder_input_choice(int x, int y, int w, int h, const char* placeholder);
 
 
 #endif 

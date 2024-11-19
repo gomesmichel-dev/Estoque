@@ -20,6 +20,4 @@ void show_cad_produto(Fl_Widget* widget, void* data);
 //void show_menu_venda(Fl_Widget* widget, void* data);
 //void show_menu__canc_venda(Fl_Widget* widget, void* data);
 //void show_menu_ver_venda(Fl_Widget* widget, void* data);
-void callback_placeholder(Fl_Widget* w, void* data);
-void apagar_placeholder(Fl_Widget* w, void* data);
 #endif // CALLBACK_H

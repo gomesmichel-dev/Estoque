@@ -10,21 +10,6 @@
 #include <string>
 #include <vector>
 
-void callback_placeholder(Fl_Widget* w, void* data) {
-    Fl_Input* input = (Fl_Input*)w;
-    const char* placeholder = (const char*)data;
-    if (input->value() == placeholder) {
-        input->value("");  // Limpa o campo
-    }
-}
-
-void apagar_placeholder(Fl_Widget* w, void* data) {
-    Fl_Input* input = (Fl_Input*)w;
-    const char* placeholder = (const char*)data;
-    if (input->value()[0] == '\0') {
-        input->value(placeholder);  // Restaura o placeholder
-    }
-}
 
 void show_menu(Fl_Widget* widget, void* data) {
     exibir(menu);
