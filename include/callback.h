@@ -19,8 +19,4 @@ void show_estoque(Fl_Widget* widget, void* data);
 
 void validate_check_buttons(Fl_Widget *w, void *data);
 
-//void show_cad_fornecedor(Fl_Widget* widget, void* data);
-//void show_menu_venda(Fl_Widget* widget, void* data);
-//void show_menu__canc_venda(Fl_Widget* widget, void* data);
-//void show_menu_ver_venda(Fl_Widget* widget, void* data);
-#endif // CALLBACK_H
+#endif 

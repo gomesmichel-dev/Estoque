@@ -28,7 +28,7 @@ private:
     Fl_Choice* choice1;
     Fl_Input_Choice* input_choice1;
     
-    void setup_widgets();  // Função para configurar widgets
+    void setup_widgets();  
 };
 
 extern Fl_Double_Window *tela_principal;
@@ -49,8 +49,6 @@ extern Fl_Group *menu_venda;
     extern Fl_Output *prc_prod;
     extern Fl_Input *desconto_venda;
     extern Fl_Button *btn_confir_venda;
-    //extern Fl_Button *btn_canc_venda;
-    //extern Fl_Button *btn_visu_venda;
 
 extern Fl_Group *menu_cadastro;
         extern Fl_Button *btn_confir_cadastro;
@@ -90,27 +88,7 @@ extern Fl_Group *menu_estoque;
     extern Fl_Check_Button *btn_saida;
 
 
-//extern Fl_Group *menu_nova_venda;
-//extern Fl_Input *in_produto_venda;
-//
-//extern Fl_Group *menu_canc_venda;
-//extern Fl_Input_Choice *buscar_prod;
-//extern Fl_Return_Button *btn_confir_canc;
-//
 
-//extern  *busca_lista_venda;
-
-//
-//extern Fl_Choice *cad_prod_estoque;
-//
-//
-//
-//extern Fl_Button *btn_confir_cadastro;
-//
-//extern Fl_Group *menu_seleção;
-//extern Fl_Choice *seletor_cadastro;
-//
-//
 
 Fl_Double_Window* main_window();
 #endif
