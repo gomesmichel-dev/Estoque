@@ -13,6 +13,7 @@ void show_menu(Fl_Widget* widget, void* data);
 void show_venda(Fl_Widget* widget, void* data);
 void show_cadastro(Fl_Widget* widget, void* data);
 void show_cad_cliente(Fl_Widget* widget, void* data);
+void show_cad_marca(Fl_Widget* widget, void* data);
 void show_cad_fornecedor(Fl_Widget* widget, void* data);
 void show_cad_produto(Fl_Widget* widget, void* data);
 void show_estoque(Fl_Widget* widget, void* data);

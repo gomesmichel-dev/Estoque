@@ -56,6 +56,7 @@ extern Fl_Group *menu_cadastro;
         extern Fl_Button *btn_excluir_cadastro;
         extern Fl_Button *btn_cad_cliente;
         extern Fl_Button *btn_cad_fornecedor;
+        extern Fl_Button *btn_cad_marca;
         extern Fl_Button *btn_cad_produto;
     
     extern Fl_Group *menu_cad_cliente;
@@ -84,6 +85,7 @@ extern Fl_Group *menu_cadastro;
         extern Fl_Input *in_obs_prod;
 
 extern Fl_Group *menu_estoque;
+    extern Fl_Button *btn_confir_cadastro;
     extern Fl_Check_Button *btn_entrada;
     extern Fl_Check_Button *btn_saida;
 

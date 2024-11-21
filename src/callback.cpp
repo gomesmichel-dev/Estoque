@@ -26,6 +26,9 @@ void show_cadastro(Fl_Widget* widget, void* data) {
 void show_cad_cliente(Fl_Widget* widget, void* data){
     exibir(menu_cadastro, menu_cad_cliente);
 }
+void show_cad_marca(Fl_Widget* widget, void* data){
+    exibir(menu_cadastro, menu_cad_marca);
+}
 void show_cad_fornecedor(Fl_Widget* widget, void* data){
     exibir(menu_cadastro, menu_cad_fornecedor);
 }
