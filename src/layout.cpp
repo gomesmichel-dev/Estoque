@@ -166,6 +166,7 @@ Fl_Double_Window* main_window() {
        menu_cad_fornecedor->hide();
 
         { in_nome_fornecedor = placeholder_input(150, 100, 300, 35, "Nome");
+          
         } 
         { in_telefone_fornecedor = placeholder_input(500, 100, 300, 35, "Telefone");
         }
