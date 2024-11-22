@@ -88,6 +88,7 @@ extern Fl_Group *menu_estoque;
     extern Fl_Button *btn_confir_cadastro;
     extern Fl_Check_Button *btn_entrada;
     extern Fl_Check_Button *btn_saida;
+    extern Fl_Input_Choice *buscar_forncedor_prod;
 
 
 

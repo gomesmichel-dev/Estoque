@@ -15,14 +15,14 @@ Fl_Group *menu=(Fl_Group *)0;
   Fl_Button *btn_menu_financeiro=(Fl_Button *)0; 
 
 Fl_Group *menu_venda=(Fl_Group *)0;
-Fl_Input_Choice *buscar_nome_prod=(Fl_Input_Choice *)0;
-Fl_Input_Choice *buscar_marca_prod=(Fl_Input_Choice *)0;
-Fl_Input_Choice *buscar_linha_prod=(Fl_Input_Choice *)0;
-Fl_Input_Choice *buscar_nome_cli=(Fl_Input_Choice *)0;
-Fl_Input  *qnt_venda=(Fl_Input *)0;
-Fl_Input  *desconto_venda=(Fl_Input *)0;
-Fl_Output *prc_prod=(Fl_Output *)0;
-Fl_Button *btn_confir_venda=(Fl_Button *)0;
+  Fl_Input_Choice *buscar_nome_prod=(Fl_Input_Choice *)0;
+  Fl_Input_Choice *buscar_marca_prod=(Fl_Input_Choice *)0;
+  Fl_Input_Choice *buscar_linha_prod=(Fl_Input_Choice *)0;
+  Fl_Input_Choice *buscar_nome_cli=(Fl_Input_Choice *)0;
+  Fl_Input  *qnt_venda=(Fl_Input *)0;
+  Fl_Input  *desconto_venda=(Fl_Input *)0;
+  Fl_Output *prc_prod=(Fl_Output *)0;
+  Fl_Button *btn_confir_venda=(Fl_Button *)0;
 
 Fl_Group *menu_cadastro=(Fl_Group *)0;
   Fl_Button *btn_confir_cadastro=(Fl_Button *)0;
@@ -61,8 +61,7 @@ Fl_Group *menu_cadastro=(Fl_Group *)0;
     Fl_Button *btn_confir_estoque=(Fl_Button *)0;
     Fl_Check_Button *btn_entrada=(Fl_Check_Button *)0; 
     Fl_Check_Button *btn_saida=(Fl_Check_Button *)0;
-      Fl_Group *menu_entrada = (Fl_Group *)0;
-      Fl_Group *menu_saida = (Fl_Group *)0;
+    Fl_Input_Choice *buscar_fornecedor_prod=(Fl_Input_Choice *)0;
 
 
 
@@ -170,7 +169,6 @@ Fl_Double_Window* main_window() {
        menu_cad_fornecedor->hide();
 
         { in_nome_fornecedor = new Fl_Input(150, 100, 300, 35, "Nome");
-          
         } 
         { in_telefone_fornecedor = new Fl_Input(550, 100, 300, 35, "Telefone");
         }
@@ -204,6 +202,7 @@ Fl_Double_Window* main_window() {
       }
       menu_cadastro->end();
     }
+
     {menu_estoque = new Fl_Group(25, 25, 1330, 695);
       groups.push_back(menu_estoque);
       menu_estoque->hide();
@@ -222,7 +221,7 @@ Fl_Double_Window* main_window() {
       } 
       { buscar_linha_prod =  new Fl_Input_Choice(150, 150, 300, 35, "Categoria");
       } 
-      { in_fornecedor_prod =  new Fl_Choice(600, 150, 300, 35, "fornecedor");
+      { buscar_fornecedor_prod =  new Fl_Input_Choice(600, 150, 300, 35, "fornecedor");
       } 
     }
     tela_principal->end();
