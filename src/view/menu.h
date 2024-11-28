@@ -9,6 +9,7 @@ class Menu {
 public:
    Menu();
    ~Menu();
+   Fl_Group* getMenuGroup() { return MenuGroup; }
 
 private:
    Fl_Group *MenuGroup;

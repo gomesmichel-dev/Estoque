@@ -9,7 +9,7 @@ class MenuVenda {
    public:
    MenuVenda();
    ~MenuVenda();
-   Fl_Group* getGroup() { return MenuVendaGroup; }
+   Fl_Group* getMenuVendaGroup() { return MenuVendaGroup; }
 
 private:
    Fl_Group *MenuVendaGroup;

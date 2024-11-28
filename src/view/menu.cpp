@@ -11,10 +11,6 @@ Menu::Menu() {
     MenuGroup->end();
 }
 
-Menu::~Menu() {
-    delete btn_menu_venda;
-    delete btn_menu_cadastro;
-    delete btn_menu_estoque;
-    delete btn_menu_financeiro;
+Menu::~Menu(){
     delete MenuGroup;
 }

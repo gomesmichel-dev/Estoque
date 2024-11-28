@@ -81,3 +81,7 @@ MenuCadastro::MenuCadastro() {
       
     MenuCadastroGroup->end();
     }
+    
+MenuCadastro::~MenuCadastro() {
+    delete MenuCadastroGroup;
+}
